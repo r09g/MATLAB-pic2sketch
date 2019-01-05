@@ -4,12 +4,14 @@
 % Converts a photo to a colorized sketch
 % Input: filename of string type
 % Output: 3 color channel image matrix
+
 function imI = pic2sketch(filename)
 % Prompt user to enter input image filename and read-in image
 I = imread(filename);
 % Remove image colours and convert from 1 to 3 channels
 bwI = rgb2gray(I);
 bwI = cat(3, bwI, bwI, bwI); 
+
 % Curving & invert colors.
 % Iterate through pixels and use 40 as threshold
 % Set everything below 40 as 0 and scale 40~255 to 0~255
@@ -25,6 +27,7 @@ for i = 1:size(I,1)
         invI(i,j,:) = 255 - bwI(i,j,:);
     end
 end
+
 % Remove noise in image by finding the local (square region on each
 % layer) minimum pixel value and assigning all local pixels that min
 % value
@@ -40,6 +43,7 @@ for i = 1:size(filterI,1)-3
         end
     end
 end
+
 % Color dodge blend mode
 % Lighter layer is the base and darker layer is the top
 blendedI = zeros(size(I,1),size(I,2),size(I,3));
@@ -58,6 +62,7 @@ for i = 1:size(blendedI,1)
         end
     end
 end
+
 % Colorize sketch by overlaying original photo on top and adjusting
 % transparency
 figure('units','normalized','position',[0.2 0.2 0.6 0.6]);
@@ -68,6 +73,7 @@ axis image
 hold on
 imcolor = image(I);
 set(imcolor,'AlphaData',0.3);   % transparency
+
 % Export colorized sketch
 f = getframe(gcf);
 imI = f.cdata;  % 3 color channel image matrix
