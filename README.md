@@ -3,10 +3,10 @@ This MATLAB function converts a 3-color-channel (RGB) image into a colorized ske
 
 ## Example ##
 Original Picture: <br />
-![testpic](https://raw.githubusercontent.com/yanghaoqin/MATLAB-pic2sketch/master/testpic.jpg)
+<img src="https://raw.githubusercontent.com/yanghaoqin/MATLAB-pic2sketch/master/testpic.jpg" width="540" height="405" />
 <br /><br />
 Colorized Sketch: <br />
-![testsketch](https://raw.githubusercontent.com/yanghaoqin/MATLAB-pic2sketch/master/testsketch.jpg)
+<img src="https://raw.githubusercontent.com/yanghaoqin/MATLAB-pic2sketch/master/testsketch.jpg" width="540" height="405" />
 
 ## Reference ##
 [Image Processing in Photoshop](https://www.photoshopessentials.com/photo-effects/photo-to-sketch/)
