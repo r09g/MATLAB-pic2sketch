@@ -57,9 +57,10 @@ end
 function [filterI] = filter(invI)
     filterI = zeros(size(invI,1),size(invI,2),size(invI,3));
     for dim = 1:size(filterI,3)
-        % a smaller ones matrix works for images with smaller resolution
-        % a bigger ones matrix works for images with bigger resolution 
-        filterI(:,:,dim) = ordfilt2(invI(:,:,dim),1,ones(10,10));
+        % the ones matrix size is usually proportional to the image resolutions
+        % typically values range from 3~10
+        % a greater matrix size means a larger neighbourhood filtering operation takes place
+        filterI(:,:,dim) = ordfilt2(invI(:,:,dim),1,ones(5,5));
     end
 end
 
