@@ -37,6 +37,7 @@ set(imcolor,'AlphaData',0.3);   % transparency
 f = getframe(gcf);
 imI = f.cdata;  % 3 color channel image matrix
 end
+
 % Functions----------------------------------------------------------------
 
 % Curving.
