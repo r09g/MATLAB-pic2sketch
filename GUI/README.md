@@ -1,0 +1,2 @@
+# The GUI #
+The convert.m function is a highly similar variation of the pic2sketch.m function, except convert.m has the figure visibility turned off, since the converted image is meant to be displayed on the axis within the GUI rather than a pop-up window.
