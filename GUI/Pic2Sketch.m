@@ -102,7 +102,8 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 
 % access filepath
 h = findobj('Tag','pushbutton1');
-path = h.UserData.fname;
+data = h.UserData;
+path = data.fname;
 % convert to sketch
 imfile = convert(path);
 % store image matrix for later use
@@ -123,7 +124,8 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % access image matrix and file name
 h = findobj('Tag','pushbutton2');
 h2 = findobj('Tag','pushbutton1');
-fname = h2.UserData.name;
+data = h2.UserData;
+fname = data.name;
 img = h.UserData;
 % save
 imwrite(img,fname);
@@ -138,6 +140,6 @@ h2 = findobj('Tag','pushbutton2');
 h3 = findobj('Tag','pushbutton3');
 % clear properties
 cla
-h1.UserData = [];
-h2.UserData = [];
+set(h1,'UserData',[]);
+set(h2,'UserData',[]);
 set(h3,'String','Save Image');
