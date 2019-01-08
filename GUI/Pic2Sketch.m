@@ -124,7 +124,7 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 h = findobj('Tag','pushbutton2');
 img = h.UserData;
 % save
-[filename,foldername] = uiputfile('');
+[filename,foldername] = uiputfile({'*.jpg';'*.png'});
 fname = [foldername filename];
 imwrite(img,fname);
 set(hObject,'String','Success!');

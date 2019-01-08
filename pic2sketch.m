@@ -34,7 +34,7 @@ hold off
 set(imcolor,'AlphaData',0.3);   % transparency
  
 % Export colorized sketch
-f = getframe(gcf);
+f = getframe;
 imI = f.cdata;  % 3 color channel image matrix
 end
 
