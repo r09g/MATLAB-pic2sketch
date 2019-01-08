@@ -85,7 +85,7 @@ reset();
 [filename,filepath] = uigetfile({'*.*';'*.jpg';'*.png';'*.jpeg'},'Search Image to Convert');
 fname = [filepath filename];
 % store info for later use
-hObject.UserData = struct('fname',fname,'name',filename);
+hObject.UserData = fname;
 % display image
 im = imread(fname);
 axes(handles.axes1);
@@ -102,8 +102,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 
 % access filepath
 h = findobj('Tag','pushbutton1');
-data = h.UserData;
-path = data.fname;
+path = h.UserData;
 % convert to sketch
 imfile = convert(path);
 % store image matrix for later use
@@ -123,11 +122,10 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 
 % access image matrix and file name
 h = findobj('Tag','pushbutton2');
-h2 = findobj('Tag','pushbutton1');
-data = h2.UserData;
-fname = data.name;
 img = h.UserData;
 % save
+[filename,foldername] = uiputfile('');
+fname = [foldername filename];
 imwrite(img,fname);
 set(hObject,'String','Success!');
 
